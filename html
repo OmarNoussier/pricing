@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product Pricing Assistant</title>
+
+    <!-- Some very simple styling so it doesn't look plain -->
+    <style>
+      body {
+        font-family: Arial;
+        background-color: #f0f0f0;
+        padding: 20px;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      p {
+        font-size: 18px;
+        color: #222;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Product Pricing Assistant</h1>
+
+    <!-- This is where my answers will show up on the page -->
+    <p id="output"></p>
+
+    <script>
+      var productName = "Wireless Earbuds";
+      var costPerUnit = 12.50;
+      var basePrice = 19.99;
+      var discountRate = 0.15;
+      var salesTaxRate = 0.07;   
+      var fixedMonthlyCosts = 800;
+
+        // STEP 2:
+      var discountedPrice = basePrice * (1 - discountRate);
+      var finalPriceWithTax = discountedPrice * (1 + salesTaxRate);
+      var profitPerUnit = finalPriceWithTax - costPerUnit;
+      var breakEvenUnits = Math.ceil(fixedMonthlyCosts / profitPerUnit);
+      var isProfitablePerUnit = profitPerUnit > 0;
+
+     
+      console.log("Product Name: " + productName);
+      console.log("Discounted Price: $" + discountedPrice.toFixed(2));
+      console.log("Final Price With Tax: $" + finalPriceWithTax.toFixed(2));
+      console.log("Profit Per Unit: $" + profitPerUnit.toFixed(2));
+      console.log("Break-Even Units: " + breakEvenUnits);
+      console.log("Is It Profitable? " + isProfitablePerUnit);
+
+      // my answers
+      document.getElementById("output").innerHTML =
+        "Product Name: " + productName + "<br>" +
+        "Discounted Price: $" + discountedPrice.toFixed(2) + "<br>" +
+        "Final Price With Tax: $" + finalPriceWithTax.toFixed(2) + "<br>" +
+        "Profit Per Unit: $" + profitPerUnit.toFixed(2) + "<br>" +
+        "Break-Even Units: " + breakEvenUnits + "<br>" +
+        "Is It Profitable? " + isProfitablePerUnit;
+    </script>
+  </body>
+</html>
