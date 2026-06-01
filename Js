@@ -1,0 +1,22 @@
+// STEP 1:
+var productName = "Wireless Earbuds";
+var costPerUnit = 12.50;
+var basePrice = 19.99;
+var discountRate = 0.15;   // this means 15% off
+var salesTaxRate = 0.07;   // this means 7% tax
+var fixedMonthlyCosts = 800;
+
+// STEP 2:
+var discountedPrice = basePrice * (1 - discountRate);
+var finalPriceWithTax = discountedPrice * (1 + salesTaxRate);
+var profitPerUnit = finalPriceWithTax - costPerUnit;
+var breakEvenUnits = Math.ceil(fixedMonthlyCosts / profitPerUnit);
+var isProfitablePerUnit = profitPerUnit > 0;
+
+// STEP 3:
+console.log("Product Name: " + productName);
+console.log("Discounted Price: $" + discountedPrice.toFixed(2));
+console.log("Final Price With Tax: $" + finalPriceWithTax.toFixed(2));
+console.log("Profit Per Unit: $" + profitPerUnit.toFixed(2));
+console.log("Break-Even Units: " + breakEvenUnits);
+console.log("Is It Profitable? " + isProfitablePerUnit);
